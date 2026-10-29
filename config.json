@@ -1,0 +1,12 @@
+{
+  "source_url": "https://pitchfork.com/news/new-album-releases/",
+  "timezone": "America/Los_Angeles",
+  "retain_days": 14,
+  "lookahead_days": 365,
+  "minimum_source_albums": 10,
+  "maximum_source_age_days": 90,
+  "maximum_drop_fraction": 0.5,
+  "gist_owner": "elicstone",
+  "gist_id": "a04cecae2e6a2ada2b969e752831d332",
+  "gist_filename": "gistfile1.txt"
+}

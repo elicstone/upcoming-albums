@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-28",
+  "source_url": "https://pitchfork.com/news/new-album-releases/",
+  "source_count": 102,
+  "retain_days": 14,
+  "albums": [
+    {
+      "artist": "2nd Grade",
+      "title": "Boys and Girls",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Aaron Dilloway",
+      "title": "No Skill Comedy Mind Reading",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Andy Stott",
+      "title": "Late Loop",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Aphex Twin",
+      "title": "Drukqs (reissue)",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Bktherula",
+      "title": "N5on",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Brat Star",
+      "title": "Southern Ontario Gothic",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Chloe Qisha",
+      "title": "Fantasize",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Diiv",
+      "title": "ZIRP!",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Dream Unending",
+      "title": "Certain Uncertainties",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Ex:Re",
+      "title": "Save As",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Heathers",
+      "title": "Awesome",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "horsegiirL",
+      "title": "Hardcore Healing EP",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Isik Kural",
+      "title": "Motorcycles and Cherry Wind",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Kali Malone",
+      "title": "Burning Song",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Lydia Loveless",
+      "title": "Accolades",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Ministry",
+      "title": "Hate to Go (Take Out or Delivery)",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "PISS",
+      "title": "You Made Me / Skin on Linen",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Queens of the Stone Age",
+      "title": "Perfecth",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Ross Simonini",
+      "title": "Themes Vol. 1 & 2",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Sampa the Great",
+      "title": "Nu Zamrock",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Stephen Steinbrink",
+      "title": "In a Split Mirror",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Thao",
+      "title": "Show Me",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "WHY?",
+      "title": "Oh Golly / Yes Lord",
+      "release_date": "2026-10-30"
+    },
+    {
+      "artist": "Bad Brains",
+      "title": "Are You Ready: The First Studio Recording",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Bassvictim",
+      "title": "Peace + War",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Boys Noize",
+      "title": "7LLVSION",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Carmen Quill",
+      "title": "Harmless",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Catherine Elicson",
+      "title": "River of Fat",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Daine",
+      "title": "In Endless Awe & Agony",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Dawuna",
+      "title": "Love’s Arp",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Kings of Leon",
+      "title": "O My Beloved",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "La Roux",
+      "title": "Old Flames",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Lil Baby",
+      "title": "Fresh",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Lou Turner",
+      "title": "Strangels",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Oso Oso",
+      "title": "An Exchange of Information",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Rex Orange County",
+      "title": "Dream Fatigue",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Sam Gendel",
+      "title": "Advanced White Trash",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Shygirl",
+      "title": "Swallow!",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Skepta",
+      "title": "The Form and Knife",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Statik Selektah",
+      "title": "Expensive Taste",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Sufjan Stevens",
+      "title": "Worst Christmas Ever!",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Tom Petty and the Heartbreakers",
+      "title": "Origins 1971-1978",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Tove Styrke",
+      "title": "I Thought This Story Wasn’t About Me",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Twisted Teens",
+      "title": "The Holy Cross Tigers",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "UNIIQU3",
+      "title": "Mass Appeal",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "Various Artists",
+      "title": "Heart of Gold: The Songs of Neil Young, Vol. 2 - Out of the Blue / Vol. 3 - Into the Black",
+      "release_date": "2026-11-06"
+    },
+    {
+      "artist": "2hollis",
+      "title": "Pirouette",
+      "release_date": "2026-11-11"
+    },
+    {
+      "artist": "Aesop Rock and Blockhead",
+      "title": "Trouble Mountain",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Anna Butterss / John Raymond / Ben Lumsdaine",
+      "title": "Beginningless",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Blackhaine",
+      "title": "Saints in the Wethouse",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Fucked Up",
+      "title": "Year of the Rooster",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Jake Bugg",
+      "title": "Alamo",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Jan St. Werner",
+      "title": "Squares Will Fall",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Kim Deal",
+      "title": "Live at the Barbican",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Krill",
+      "title": "Secret Language",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Snoh Aalegra",
+      "title": "Legendary Love",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Tami Hart",
+      "title": "Tami Hart",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "U2",
+      "title": "Carnaval De Luz",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Various Artists",
+      "title": "20th Century Paddy: The Songs of Shane MacGowan",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Wavves",
+      "title": "Cherry Soda",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Westside Gunn",
+      "title": "Heelmatic",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Bodywash",
+      "title": "Laughing at Noise",
+      "release_date": "2026-11-20"
+    },
+    {
+      "artist": "Julianna Barwick / Mary Lattimore",
+      "title": "Threshold (OST)",
+      "release_date": "2026-11-20"
+    },
+    {
+      "artist": "Lambchop",
+      "title": "Demoed",
+      "release_date": "2026-11-20"
+    },
+    {
+      "artist": "R.E.M.",
+      "title": "Reveal (25th Anniversary Edition)",
+      "release_date": "2026-11-20"
+    },
+    {
+      "artist": "Sebadoh",
+      "title": "Harmacy (30th Anniversary Expanded Edition)",
+      "release_date": "2026-11-20"
+    },
+    {
+      "artist": "Various Artists",
+      "title": "Grand Theft Auto VI: The Album",
+      "release_date": "2026-11-20"
+    },
+    {
+      "artist": "Agriculture",
+      "title": "The Spiritual Sound, Live in Europe 2026",
+      "release_date": "2026-11-27"
+    },
+    {
+      "artist": "Beverly Glenn-Copeland",
+      "title": "Keyboard Fantasies (40th Anniversary Edition)",
+      "release_date": "2026-11-27"
+    },
+    {
+      "artist": "Björk",
+      "title": "Björk Orkestral With the Hamrahlíð Choir",
+      "release_date": "2026-11-27"
+    },
+    {
+      "artist": "Bon Iver",
+      "title": "22, A Million (10th Anniversary Edition)",
+      "release_date": "2026-11-27"
+    },
+    {
+      "artist": "Peter Gabriel",
+      "title": "o/i",
+      "release_date": "2026-11-27"
+    },
+    {
+      "artist": "Morphine",
+      "title": "Cocoon",
+      "release_date": "2026-12-04"
+    },
+    {
+      "artist": "serpentwithfeet",
+      "title": "Sentinel",
+      "release_date": "2026-12-04"
+    },
+    {
+      "artist": "Slayyyter",
+      "title": "Wor$t Man in America",
+      "release_date": "2026-12-04"
+    },
+    {
+      "artist": "Ozzy Osbourne & Black Sabbath",
+      "title": "Back to the Beginning",
+      "release_date": "2026-12-11"
+    },
+    {
+      "artist": "Panda Bear",
+      "title": "PB Band Live 25 at Power Station",
+      "release_date": "2026-12-11"
+    },
+    {
+      "artist": "Robbie Bennett",
+      "title": "Steloken/Circulation",
+      "release_date": "2026-12-11"
+    },
+    {
+      "artist": "Hot Chip",
+      "title": "A Long Way From Kansas",
+      "release_date": "2027-01-08"
+    },
+    {
+      "artist": "GIFT",
+      "title": "Frenzy For The Thrill",
+      "release_date": "2027-01-15"
+    },
+    {
+      "artist": "Kacey Musgraves",
+      "title": "Tex Mex Tapes",
+      "release_date": "2027-01-15"
+    },
+    {
+      "artist": "Lambrini Girls",
+      "title": "No Refunds",
+      "release_date": "2027-01-15"
+    },
+    {
+      "artist": "Mei Semones",
+      "title": "Howl",
+      "release_date": "2027-01-15"
+    },
+    {
+      "artist": "Soul Glo",
+      "title": "Na I’m Gon Grab Allat",
+      "release_date": "2027-01-15"
+    },
+    {
+      "artist": "Chvrches",
+      "title": "All the King’s Men",
+      "release_date": "2027-01-22"
+    },
+    {
+      "artist": "Kate Nash",
+      "title": "Callin",
+      "release_date": "2027-01-22"
+    },
+    {
+      "artist": "Knifeplay",
+      "title": "What Is Truth",
+      "release_date": "2027-01-22"
+    },
+    {
+      "artist": "The Flaming Lips",
+      "title": "The Teardrop Throbs",
+      "release_date": "2027-01-22"
+    },
+    {
+      "artist": "Bleep",
+      "title": "Slug",
+      "release_date": "2027-01-29"
+    },
+    {
+      "artist": "Blue Bendy",
+      "title": "One Day This Will All Be Lore",
+      "release_date": "2027-01-29"
+    },
+    {
+      "artist": "Claire Rousay and Zander Raymond",
+      "title": "Something Good",
+      "release_date": "2027-01-29"
+    },
+    {
+      "artist": "Clap Your Hands Say Yeah",
+      "title": "Burned",
+      "release_date": "2027-01-29"
+    },
+    {
+      "artist": "Death From Above 1979",
+      "title": "Private Lives",
+      "release_date": "2027-01-29"
+    },
+    {
+      "artist": "Anna Meredith",
+      "title": "Darling",
+      "release_date": "2027-02-12"
+    },
+    {
+      "artist": "Sugababes",
+      "title": "Sugababes",
+      "release_date": "2027-02-12"
+    },
+    {
+      "artist": "Whait (Wendy Eisenberg and More Eaze)",
+      "title": "Sympathy at Home",
+      "release_date": "2027-02-17"
+    },
+    {
+      "artist": "Everything But the Girl",
+      "title": "Blue Reservoir",
+      "release_date": "2027-02-19"
+    },
+    {
+      "artist": "Marika Hackman",
+      "title": "False Dogs",
+      "release_date": "2027-02-19"
+    },
+    {
+      "artist": "Blondie",
+      "title": "High Noon",
+      "release_date": "2027-02-26"
+    },
+    {
+      "artist": "David Sylvian",
+      "title": "The Distance Between the Killer and the Killing",
+      "release_date": "2027-02-27"
+    },
+    {
+      "artist": "Liars",
+      "title": "A Ban on Plastic Bag Bans",
+      "release_date": "2027-03-05"
+    },
+    {
+      "artist": "Tindersticks",
+      "title": "Dog Roses",
+      "release_date": "2027-03-12"
+    }
+  ]
+}
