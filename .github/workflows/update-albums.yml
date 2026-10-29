@@ -21,11 +21,11 @@ concurrency:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
       - name: Test parser, retention, patterns and publishing safeguards
@@ -54,7 +54,8 @@ jobs:
           import json, os
           from pathlib import Path
           s = json.loads(Path('data/status.json').read_text())
+          config = json.loads(Path('config.json').read_text())
           mode = 'Gist publication enabled' if os.environ.get('PUBLISH_GIST') == 'true' else 'Preview only: gist has not been changed'
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
-              f.write(f"{mode}\n\nValidated {s['album_count']} albums and {s['pattern_count']} patterns for {s['as_of']}.\n\nRetention: 14 days after release.\n")
+              f.write(f"{mode}\n\nValidated {s['album_count']} albums and {s['pattern_count']} patterns for {s['as_of']}.\n\nRetention: {config['retain_days']} days after release.\n")
           PY
