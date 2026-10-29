@@ -8,7 +8,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from update_feed import FeedError, build, clean_title, merge_rows, parse_calendar, patterns_for, validate_feed
+from update_feed import FeedError, SENTINEL, build, build_cached, clean_title, merge_rows, parse_calendar, patterns_for, prepare_update, source_refresh_due, validate_feed
 from publish_gist import publish, verify_generated
 
 CONFIG = json.loads((Path(__file__).resolve().parents[1] / 'config.json').read_text())
@@ -77,6 +77,68 @@ class CalendarTests(unittest.TestCase):
     def test_invalid_retention(self):
         config = dict(CONFIG, retain_days=30)
         with self.assertRaises(FeedError): build(config, calendar(), {}, TODAY)
+
+
+class CadenceTests(unittest.TestCase):
+    def setUp(self):
+        _, self.previous, _ = build(CONFIG, calendar(), {}, TODAY)
+
+    def test_exact_fourteen_day_boundary(self):
+        self.assertFalse(source_refresh_due(self.previous, date(2026,11,10), CONFIG))
+        self.assertTrue(source_refresh_due(self.previous, date(2026,11,11), CONFIG))
+
+    def test_cached_cleanup_never_fetches_and_does_not_shift_schedule(self):
+        def forbidden_fetch(url):
+            self.fail('Scheduled cleanup must not fetch the calendar')
+        _, state, status = prepare_update(CONFIG, self.previous, date(2026,11,5), scheduled=True, fetch=forbidden_fetch)
+        self.assertEqual(status['update_mode'], 'retention only')
+        self.assertEqual(state['last_source_fetch'], '2026-10-28')
+        self.assertEqual(status['next_source_fetch'], '2026-11-11')
+        self.assertTrue(source_refresh_due(state, date(2026,11,11), CONFIG))
+
+    def test_cached_cleanup_expires_released_albums(self):
+        self.previous['albums'] = [row('Expired', released='2026-10-20'), row('Day14', released='2026-10-21'), row('Future', released='2026-11-20')]
+        _, state, _ = build_cached(CONFIG, self.previous, date(2026,11,4))
+        self.assertEqual({r['artist'] for r in state['albums']}, {'Day14', 'Future'})
+
+    def test_due_run_fetches_and_resets_next_date(self):
+        calls = []
+        def fetch(url):
+            calls.append(url)
+            return calendar()
+        _, state, status = prepare_update(CONFIG, self.previous, date(2026,11,11), scheduled=True, fetch=fetch)
+        self.assertEqual(calls, [CONFIG['source_url']])
+        self.assertEqual(state['last_source_fetch'], '2026-11-11')
+        self.assertEqual(status['next_source_fetch'], '2026-11-25')
+
+    def test_manual_run_refreshes_before_due(self):
+        calls = []
+        def fetch(url):
+            calls.append(url)
+            return calendar()
+        _, state, _ = prepare_update(CONFIG, self.previous, date(2026,10,29), fetch=fetch)
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(state['last_source_fetch'], '2026-10-29')
+
+    def test_empty_cache_uses_no_match_sentinel(self):
+        self.previous['albums'] = [row(released='2026-10-10')]
+        content, _, _ = build_cached(CONFIG, self.previous, date(2026,10,29))
+        self.assertEqual(content, SENTINEL + '\n')
+
+    def test_calendar_year_boundary(self):
+        previous = dict(self.previous, last_source_fetch='2026-12-25')
+        self.assertFalse(source_refresh_due(previous, date(2027,1,7), CONFIG))
+        self.assertTrue(source_refresh_due(previous, date(2027,1,8), CONFIG))
+
+    def test_future_saved_date_rejected(self):
+        with self.assertRaises(FeedError): source_refresh_due(self.previous, date(2026,10,27), CONFIG)
+
+    def test_legacy_history_uses_its_last_fetch_date(self):
+        previous = dict(self.previous)
+        del previous['last_source_fetch']
+        _, state, status = build_cached(CONFIG, previous, date(2026,10,29))
+        self.assertEqual(state['last_source_fetch'], '2026-10-28')
+        self.assertEqual(status['next_source_fetch'], '2026-11-11')
 
 
 class PatternTests(unittest.TestCase):

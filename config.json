@@ -2,6 +2,7 @@
   "source_url": "https://pitchfork.com/news/new-album-releases/",
   "timezone": "America/Los_Angeles",
   "retain_days": 14,
+  "source_refresh_days": 14,
   "lookahead_days": 365,
   "minimum_source_albums": 10,
   "maximum_source_age_days": 90,

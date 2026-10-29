@@ -1,4 +1,4 @@
-"""Build a curated autobrr plaintext list. Python 3.12+, no third-party packages."""
+"""Refresh the calendar fortnightly and expire old albums daily. Python 3.12+."""
 from __future__ import annotations
 
 import argparse
@@ -223,20 +223,59 @@ def atomic_write(path, content):
     temp.replace(path)
 
 
-def build(config, html, previous, today):
+def validate_timing(config):
     if not 7 <= config["retain_days"] <= 14:
         raise FeedError("retain_days must be between 7 and 14.")
+    if not 1 <= config.get("source_refresh_days", 14) <= 30:
+        raise FeedError("source_refresh_days must be between 1 and 30.")
+
+
+def source_refresh_due(previous, today, config):
+    validate_timing(config)
+    last_fetch = previous.get("last_source_fetch") or previous.get("as_of")
+    if not last_fetch:
+        return True
+    elapsed = (today - date.fromisoformat(last_fetch)).days
+    if elapsed < 0:
+        raise FeedError("Saved source-fetch date is in the future.")
+    return elapsed >= config.get("source_refresh_days", 14)
+
+
+def render_feed(config, rows, source_count, metadata, today, last_fetch, mode):
+    patterns = sorted({p for r in rows for p in patterns_for(r)}, key=str.lower)
+    content = "\n".join(patterns or [SENTINEL]) + "\n"
+    validate_feed(content)
+    next_fetch = date.fromisoformat(last_fetch) + timedelta(days=config.get("source_refresh_days", 14))
+    result = {"schema_version": 1, "as_of": today.isoformat(), "source_url": config["source_url"], "source_count": source_count, "retain_days": config["retain_days"], "last_source_fetch": last_fetch, "source_metadata": metadata, "albums": rows}
+    status = {"as_of": today.isoformat(), "source": metadata, "source_count": source_count, "album_count": len(rows), "pattern_count": len(patterns), "feed_sha256": hashlib.sha256(content.encode()).hexdigest(), "verified_at": datetime.now(timezone.utc).isoformat(), "last_source_fetch": last_fetch, "next_source_fetch": next_fetch.isoformat(), "update_mode": mode, "gist_raw_url": f"https://gist.githubusercontent.com/{config['gist_owner']}/{config['gist_id']}/raw/{config['gist_filename']}"}
+    return content, result, status
+
+
+def build(config, html, previous, today):
+    validate_timing(config)
     current, metadata = parse_calendar(html, today, config)
     old_count = previous.get("source_count", 0)
     if old_count >= 20 and len(current) < old_count * (1 - config["maximum_drop_fraction"]):
         raise FeedError("Source lost more than half its albums; review before publishing.")
     rows = merge_rows(current, previous.get("albums", []), today, config)
-    patterns = sorted({p for r in rows for p in patterns_for(r)}, key=str.lower)
-    content = "\n".join(patterns or [SENTINEL]) + "\n"
-    validate_feed(content)
-    result = {"schema_version": 1, "as_of": today.isoformat(), "source_url": config["source_url"], "source_count": len(current), "retain_days": config["retain_days"], "albums": rows}
-    status = {"as_of": today.isoformat(), "source": metadata, "source_count": len(current), "album_count": len(rows), "pattern_count": len(patterns), "feed_sha256": hashlib.sha256(content.encode()).hexdigest(), "verified_at": datetime.now(timezone.utc).isoformat(), "gist_raw_url": f"https://gist.githubusercontent.com/{config['gist_owner']}/{config['gist_id']}/raw/{config['gist_filename']}"}
-    return content, result, status
+    return render_feed(config, rows, len(current), metadata, today, today.isoformat(), "source refresh")
+
+
+def build_cached(config, previous, today):
+    if source_refresh_due(previous, today, config):
+        raise FeedError("A fresh source fetch is due; refusing to extend the cache.")
+    metadata = previous.get("source_metadata")
+    if not metadata or not isinstance(previous.get("albums"), list):
+        raise FeedError("Cached source metadata or albums are missing.")
+    last_fetch = previous.get("last_source_fetch") or previous["as_of"]
+    rows = merge_rows(previous["albums"], [], today, config)
+    return render_feed(config, rows, previous["source_count"], metadata, today, last_fetch, "retention only")
+
+
+def prepare_update(config, previous, today, *, scheduled=False, html=None, fetch=http_get):
+    if scheduled and html is None and not source_refresh_due(previous, today, config):
+        return build_cached(config, previous, today)
+    return build(config, html if html is not None else fetch(config["source_url"]), previous, today)
 
 
 def main():
@@ -244,18 +283,24 @@ def main():
     parser.add_argument("--html", type=Path, help="Local source snapshot, for verification only")
     parser.add_argument("--today", type=date.fromisoformat, help="Explicit test date")
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--scheduled", action="store_true", help="Fetch only when the source refresh interval is due; otherwise expire old albums from saved data")
     args = parser.parse_args()
     config = json.loads((args.root / "config.json").read_text(encoding="utf-8"))
     today = args.today or datetime.now(ZoneInfo(config["timezone"])).date()
     history = args.root / "data/albums.json"
     previous = json.loads(history.read_text(encoding="utf-8")) if history.exists() else {}
-    html = args.html.read_text(encoding="utf-8") if args.html else http_get(config["source_url"])
-    content, state, status = build(config, html, previous, today)
+    # Migrate the existing daily feed without pretending today's cleanup is a fetch.
+    old_status_path = args.root / "data/status.json"
+    if previous and not previous.get("source_metadata") and old_status_path.exists():
+        old_status = json.loads(old_status_path.read_text(encoding="utf-8"))
+        previous["source_metadata"] = old_status.get("source")
+    html = args.html.read_text(encoding="utf-8") if args.html else None
+    content, state, status = prepare_update(config, previous, today, scheduled=args.scheduled, html=html)
     # Nothing is touched until all parsing, retention and pattern checks pass.
     atomic_write(args.root / "upcoming-albums.txt", content)
     atomic_write(history, json.dumps(state, ensure_ascii=False, indent=2) + "\n")
     atomic_write(args.root / "data/status.json", json.dumps(status, ensure_ascii=False, indent=2) + "\n")
-    print(f"Validated {status['album_count']} albums / {status['pattern_count']} patterns for {today}.")
+    print(f"{status['update_mode']}: validated {status['album_count']} albums / {status['pattern_count']} patterns for {today}. Next source fetch: {status['next_source_fetch']}.")
 
 
 if __name__ == "__main__":

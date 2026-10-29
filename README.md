@@ -1,6 +1,6 @@
 # Curated upcoming albums
 
-Builds `upcoming-albums.txt` daily from [Pitchfork's maintained release calendar](https://pitchfork.com/news/new-album-releases/). Each line pairs one artist with one album in the RED IRC announce format. The existing gist remains the subscription endpoint:
+Refreshes `upcoming-albums.txt` from [Pitchfork's maintained release calendar](https://pitchfork.com/news/new-album-releases/) **every 14 days**, with daily removal of expired albums from saved data. Each line pairs one artist with one album in the RED IRC announce format. The existing gist remains the subscription endpoint:
 
 **[Stable gist feed](https://gist.githubusercontent.com/elicstone/a04cecae2e6a2ada2b969e752831d332/raw/gistfile1.txt)**
 
@@ -8,7 +8,7 @@ The original URL contains `/raw/393d4cff10ff5f09a1ca00f819a6080fb134772f/`. That
 
 ## Current verification
 
-Deployment verified October 28, 2026: **daily gist publication is enabled**. The [first successful publication run](https://github.com/elicstone/upcoming-albums/actions/runs/40815940696) passed all tests and updated the existing gist. The public gist returned HTTP 200 with `text/plain`, matched the repository feed exactly, and autobrr imported all 111 patterns unchanged. RED - Popular remains disabled pending the Test-only validation below.
+Deployment verified October 28, 2026: **gist publication is enabled**. The [first successful publication run](https://github.com/elicstone/upcoming-albums/actions/runs/40815940696) passed all tests and updated the existing gist. The public gist returned HTTP 200 with `text/plain`, matched the repository feed exactly, and autobrr imported all 111 patterns unchanged. Source refreshes now occur every 14 days; daily cleanup preserves the retention window. RED - Popular remains disabled pending the Test-only validation below.
 
 - Verified October 28, 2026 (America/Los_Angeles): the calendar is accessible as HTML with a `NewsArticle` JSON-LD body, date headings and `Artist: Album [Label]` lines. No browser rendering or paid API is needed.
 - Initial parse: **102 albums across 19 dates**, from October 30, 2026 through March 12, 2027. Pattern count is recorded in `data/status.json`.
@@ -16,9 +16,11 @@ Deployment verified October 28, 2026: **daily gist publication is enabled**. The
 - The stable gist endpoint was checked and returns `text/plain; charset=utf-8`.
 - Parser, retention, matching and publication safeguards have local automated tests. A green GitHub Actions run additionally verifies source access from a GitHub runner. Neither establishes successful matching on your installed autobrr version: complete the Test-only procedure below.
 
-## Daily update and retention
+## Two-week refresh and retention
 
-The workflow runs at **14:17 UTC** daily (07:17 Pacific daylight time / 06:17 Pacific standard time), on relevant code changes, and through **Actions → Update upcoming albums → Run workflow**. GitHub scheduling can be delayed. It uses Python 3.12's standard library and no installed scraping packages.
+The workflow checks at **14:17 UTC** daily (07:17 Pacific daylight time / 06:17 Pacific standard time), but fetches Pitchfork only when **14 days have elapsed since the last successful source refresh**. On other days it uses the saved album data only, removing expired entries. The gist is changed only when its content changes. This is an exact 14-day interval across month/year boundaries, not twice per calendar month. GitHub scheduling can be delayed. It uses Python 3.12's standard library and no installed scraping packages.
+
+The next source refresh after October 28 is **November 11, 2026**. `data/status.json` records the actual `last_source_fetch`, `next_source_fetch`, and whether a run did a `source refresh` or `retention only`. Daily cleanup never moves the next fetch date. New announcements, cancellations and date changes are picked up on the next source refresh and can therefore lag by up to 14 days. For an immediate refresh, use **Actions → Update upcoming albums → Run workflow**; a manual run or relevant code change forces a fetch and starts a new 14-day interval. Change `source_refresh_days` in `config.json` to adjust this interval.
 
 The feed includes upcoming albums within 365 days and releases dated at most **14 days before today**, inclusive. A release dated October 30 remains through November 13 and drops on November 14. Dates use America/Los_Angeles. `retain_days` can be set from 7 to 14 in `config.json`.
 
@@ -28,7 +30,7 @@ The source is editorially curated, not a popularity ranking. It includes albums,
 
 ## Enable updates to the existing gist
 
-Daily repository generation runs immediately. **Gist publication starts disabled** until the repository variable below is set. A preview run does not alter the existing gist or any autobrr filter.
+Repository generation runs on setup; subsequent scheduled runs follow the two-week source refresh and daily cleanup rules above. **Gist publication starts disabled** until the repository variable below is set. A preview run does not alter the existing gist or any autobrr filter.
 
 1. Check the first **Update upcoming albums** run is green and inspect `upcoming-albums.txt` and `data/status.json`.
 2. On GitHub, create a fine-grained personal access token for your own account with **Account permissions → Gists: Read and write**. No repository permissions are required for this token. If using a classic token, select only the `gist` scope. Give it a suitable expiration and renew it before expiry. The permission covers your gists, so keep the token private.
@@ -98,10 +100,11 @@ Matching semantics and RED structure were inspected at autobrr commit `f1979fffe
 ```sh
 python -m unittest discover -s tests -v
 python scripts/update_feed.py
+python scripts/update_feed.py --scheduled
 python scripts/check_name.py "Ex:Re - Save As [2026] [Album] - FLAC / Lossless / WEB"
 ```
 
-The name checker uses only local files and checks the title pattern, not the complete autobrr filter. On Windows, Python may need timezone data (`python -m pip install tzdata`); GitHub's Linux runner includes it. For an offline historical check, supply `--html path/to/calendar.html --today YYYY-MM-DD`. Do not use a historical override in the daily workflow.
+The name checker uses only local files and checks the title pattern, not the complete autobrr filter. `update_feed.py` alone forces a source refresh; `--scheduled` fetches only when due and otherwise performs retention cleanup without contacting Pitchfork. On Windows, Python may need timezone data (`python -m pip install tzdata`); GitHub's Linux runner includes it. For an offline historical check, supply `--html path/to/calendar.html --today YYYY-MM-DD`. Do not use a historical override in the scheduled workflow.
 
 ## Failure handling and recovery
 

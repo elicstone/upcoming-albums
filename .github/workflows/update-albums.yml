@@ -30,8 +30,13 @@ jobs:
           python-version: '3.12'
       - name: Test parser, retention, patterns and publishing safeguards
         run: python -m unittest discover -s tests -v
-      - name: Fetch and validate the live calendar
-        run: python scripts/update_feed.py
+      - name: Refresh calendar every 14 days and expire old albums
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            python scripts/update_feed.py --scheduled
+          else
+            python scripts/update_feed.py
+          fi
       - name: Commit validated feed and retention history
         run: |
           git config user.name 'github-actions[bot]'
@@ -57,5 +62,5 @@ jobs:
           config = json.loads(Path('config.json').read_text())
           mode = 'Gist publication enabled' if os.environ.get('PUBLISH_GIST') == 'true' else 'Preview only: gist has not been changed'
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
-              f.write(f"{mode}\n\nValidated {s['album_count']} albums and {s['pattern_count']} patterns for {s['as_of']}.\n\nRetention: {config['retain_days']} days after release.\n")
+              f.write(f"{mode}\n\nValidated {s['album_count']} albums and {s['pattern_count']} patterns for {s['as_of']}.\n\nMode: {s['update_mode']}. Source refresh: every {config['source_refresh_days']} days; next due {s['next_source_fetch']}.\n\nRetention: {config['retain_days']} days after release; expired albums removed daily.\n")
           PY
