@@ -4,6 +4,12 @@
   "source_url": "https://pitchfork.com/news/new-album-releases/",
   "source_count": 102,
   "retain_days": 14,
+  "last_source_fetch": "2026-10-28",
+  "source_metadata": {
+    "headline": "New Music Releases and Upcoming Albums in 2026",
+    "modified": "2026-10-01T10:35:03.831-04:00",
+    "date_headings": 19
+  },
   "albums": [
     {
       "artist": "2nd Grade",

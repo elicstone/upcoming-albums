@@ -9,6 +9,9 @@
   "album_count": 102,
   "pattern_count": 111,
   "feed_sha256": "9cec5ccd38396dcbc477ca8d54dc3cbc2117760fbaf6ea6fcfd8c2eea88b51db",
-  "verified_at": "2026-10-29T04:07:24.479860+00:00",
+  "verified_at": "2026-10-29T04:21:44.300998+00:00",
+  "last_source_fetch": "2026-10-28",
+  "next_source_fetch": "2026-11-11",
+  "update_mode": "source refresh",
   "gist_raw_url": "https://gist.githubusercontent.com/elicstone/a04cecae2e6a2ada2b969e752831d332/raw/gistfile1.txt"
 }
