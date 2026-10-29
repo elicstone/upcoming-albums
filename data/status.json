@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-28",
+  "as_of": "2026-10-29",
   "source": {
     "headline": "New Music Releases and Upcoming Albums in 2026",
     "modified": "2026-10-01T10:35:03.831-04:00",
@@ -9,9 +9,9 @@
   "album_count": 102,
   "pattern_count": 111,
   "feed_sha256": "9cec5ccd38396dcbc477ca8d54dc3cbc2117760fbaf6ea6fcfd8c2eea88b51db",
-  "verified_at": "2026-10-29T04:21:44.300998+00:00",
-  "last_source_fetch": "2026-10-28",
-  "next_source_fetch": "2026-11-11",
+  "verified_at": "2026-10-29T12:04:05.549999+00:00",
+  "last_source_fetch": "2026-10-29",
+  "next_source_fetch": "2026-11-05",
   "update_mode": "source refresh",
   "gist_raw_url": "https://gist.githubusercontent.com/elicstone/a04cecae2e6a2ada2b969e752831d332/raw/gistfile1.txt"
 }
