@@ -8,6 +8,8 @@ The original URL contains `/raw/393d4cff10ff5f09a1ca00f819a6080fb134772f/`. That
 
 ## Current verification
 
+Deployment verified October 28, 2026: **daily gist publication is enabled**. The [first successful publication run](https://github.com/elicstone/upcoming-albums/actions/runs/40815940696) passed all tests and updated the existing gist. The public gist returned HTTP 200 with `text/plain`, matched the repository feed exactly, and autobrr imported all 111 patterns unchanged. RED - Popular remains disabled pending the Test-only validation below.
+
 - Verified October 28, 2026 (America/Los_Angeles): the calendar is accessible as HTML with a `NewsArticle` JSON-LD body, date headings and `Artist: Album [Label]` lines. No browser rendering or paid API is needed.
 - Initial parse: **102 albums across 19 dates**, from October 30, 2026 through March 12, 2027. Pattern count is recorded in `data/status.json`.
 - The article's modification date is October 1, 2026; its original publication date is 2022 and must not be used as the release year. The parser uses the current headline, modification date and ordered headings. It ignores a January caption carrying the wrong year.
