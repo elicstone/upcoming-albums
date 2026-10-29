@@ -30,7 +30,7 @@ jobs:
           python-version: '3.12'
       - name: Test parser, retention, patterns and publishing safeguards
         run: python -m unittest discover -s tests -v
-      - name: Refresh calendar every 14 days and expire old albums
+      - name: Refresh calendar when due and expire old albums
         run: |
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
             python scripts/update_feed.py --scheduled

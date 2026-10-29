@@ -1,4 +1,4 @@
-"""Refresh the calendar fortnightly and expire old albums daily. Python 3.12+."""
+"""Refresh the calendar on its configured interval and expire old albums daily."""
 from __future__ import annotations
 
 import argparse
@@ -226,7 +226,7 @@ def atomic_write(path, content):
 def validate_timing(config):
     if not 7 <= config["retain_days"] <= 14:
         raise FeedError("retain_days must be between 7 and 14.")
-    if not 1 <= config.get("source_refresh_days", 14) <= 30:
+    if not 1 <= config.get("source_refresh_days", 7) <= 30:
         raise FeedError("source_refresh_days must be between 1 and 30.")
 
 
@@ -238,14 +238,14 @@ def source_refresh_due(previous, today, config):
     elapsed = (today - date.fromisoformat(last_fetch)).days
     if elapsed < 0:
         raise FeedError("Saved source-fetch date is in the future.")
-    return elapsed >= config.get("source_refresh_days", 14)
+    return elapsed >= config.get("source_refresh_days", 7)
 
 
 def render_feed(config, rows, source_count, metadata, today, last_fetch, mode):
     patterns = sorted({p for r in rows for p in patterns_for(r)}, key=str.lower)
     content = "\n".join(patterns or [SENTINEL]) + "\n"
     validate_feed(content)
-    next_fetch = date.fromisoformat(last_fetch) + timedelta(days=config.get("source_refresh_days", 14))
+    next_fetch = date.fromisoformat(last_fetch) + timedelta(days=config.get("source_refresh_days", 7))
     result = {"schema_version": 1, "as_of": today.isoformat(), "source_url": config["source_url"], "source_count": source_count, "retain_days": config["retain_days"], "last_source_fetch": last_fetch, "source_metadata": metadata, "albums": rows}
     status = {"as_of": today.isoformat(), "source": metadata, "source_count": source_count, "album_count": len(rows), "pattern_count": len(patterns), "feed_sha256": hashlib.sha256(content.encode()).hexdigest(), "verified_at": datetime.now(timezone.utc).isoformat(), "last_source_fetch": last_fetch, "next_source_fetch": next_fetch.isoformat(), "update_mode": mode, "gist_raw_url": f"https://gist.githubusercontent.com/{config['gist_owner']}/{config['gist_id']}/raw/{config['gist_filename']}"}
     return content, result, status
