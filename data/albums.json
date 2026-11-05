@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-04",
+  "as_of": "2026-11-05",
   "source_url": "https://pitchfork.com/news/new-album-releases/",
-  "source_count": 102,
+  "source_count": 84,
   "retain_days": 14,
-  "last_source_fetch": "2026-10-29",
+  "last_source_fetch": "2026-11-05",
   "source_metadata": {
-    "headline": "New Music Releases and Upcoming Albums in 2026",
-    "modified": "2026-10-01T10:35:03.831-04:00",
-    "date_headings": 19
+    "headline": "New Music Releases and Upcoming Albums in 2026 and 2027",
+    "modified": "2026-11-02T17:05:17.380-05:00",
+    "date_headings": 18
   },
   "albums": [
     {
@@ -257,6 +257,11 @@
       "release_date": "2026-11-13"
     },
     {
+      "artist": "Belly Gang Kushington",
+      "title": "Good Dope Sell Itself",
+      "release_date": "2026-11-13"
+    },
+    {
       "artist": "Blackhaine",
       "title": "Saints in the Wethouse",
       "release_date": "2026-11-13"
@@ -284,6 +289,11 @@
     {
       "artist": "Krill",
       "title": "Secret Language",
+      "release_date": "2026-11-13"
+    },
+    {
+      "artist": "Radie Peat",
+      "title": "No Human Tongue Can Tell",
       "release_date": "2026-11-13"
     },
     {
@@ -370,6 +380,16 @@
       "artist": "Peter Gabriel",
       "title": "o/i",
       "release_date": "2026-11-27"
+    },
+    {
+      "artist": "VS--55",
+      "title": "CH0 0:00:01",
+      "release_date": "2026-11-27"
+    },
+    {
+      "artist": "2 Chainz and Statik Selektah",
+      "title": "Playaz Only Live Once",
+      "release_date": "2026-12-04"
     },
     {
       "artist": "Morphine",
@@ -479,6 +499,11 @@
     {
       "artist": "Anna Meredith",
       "title": "Darling",
+      "release_date": "2027-02-12"
+    },
+    {
+      "artist": "Junior Boys",
+      "title": "The Gore",
       "release_date": "2027-02-12"
     },
     {
