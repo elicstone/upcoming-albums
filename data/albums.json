@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-14",
   "source_url": "https://pitchfork.com/news/new-album-releases/",
   "source_count": 68,
   "retain_days": 14,
@@ -11,121 +11,6 @@
     "date_headings": 18
   },
   "albums": [
-    {
-      "artist": "2nd Grade",
-      "title": "Boys and Girls",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Aaron Dilloway",
-      "title": "No Skill Comedy Mind Reading",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Andy Stott",
-      "title": "Late Loop",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Aphex Twin",
-      "title": "Drukqs (reissue)",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Bktherula",
-      "title": "N5on",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Brat Star",
-      "title": "Southern Ontario Gothic",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Chloe Qisha",
-      "title": "Fantasize",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Diiv",
-      "title": "ZIRP!",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Dream Unending",
-      "title": "Certain Uncertainties",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Ex:Re",
-      "title": "Save As",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Heathers",
-      "title": "Awesome",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "horsegiirL",
-      "title": "Hardcore Healing EP",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Isik Kural",
-      "title": "Motorcycles and Cherry Wind",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Kali Malone",
-      "title": "Burning Song",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Lydia Loveless",
-      "title": "Accolades",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Ministry",
-      "title": "Hate to Go (Take Out or Delivery)",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "PISS",
-      "title": "You Made Me / Skin on Linen",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Queens of the Stone Age",
-      "title": "Perfecth",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Ross Simonini",
-      "title": "Themes Vol. 1 & 2",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Sampa the Great",
-      "title": "Nu Zamrock",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Stephen Steinbrink",
-      "title": "In a Split Mirror",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "Thao",
-      "title": "Show Me",
-      "release_date": "2026-10-30"
-    },
-    {
-      "artist": "WHY?",
-      "title": "Oh Golly / Yes Lord",
-      "release_date": "2026-10-30"
-    },
     {
       "artist": "Bad Brains",
       "title": "Are You Ready: The First Studio Recording",
