@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-18",
+  "as_of": "2026-11-19",
   "source_url": "https://pitchfork.com/news/new-album-releases/",
-  "source_count": 68,
+  "source_count": 56,
   "retain_days": 14,
-  "last_source_fetch": "2026-11-12",
+  "last_source_fetch": "2026-11-19",
   "source_metadata": {
     "headline": "New Music Releases and Upcoming Albums in 2026 and 2027",
     "modified": "2026-11-02T17:05:17.380-05:00",
-    "date_headings": 18
+    "date_headings": 17
   },
   "albums": [
     {
@@ -237,6 +237,11 @@
       "release_date": "2026-11-20"
     },
     {
+      "artist": "Lorenzo Senni",
+      "title": "All Ages",
+      "release_date": "2026-11-20"
+    },
+    {
       "artist": "R.E.M.",
       "title": "Reveal (25th Anniversary Edition)",
       "release_date": "2026-11-20"
@@ -292,8 +297,18 @@
       "release_date": "2026-11-27"
     },
     {
+      "artist": "Rockie Rode",
+      "title": "Babylon",
+      "release_date": "2026-12-03"
+    },
+    {
       "artist": "2 Chainz and Statik Selektah",
       "title": "Playaz Only Live Once",
+      "release_date": "2026-12-04"
+    },
+    {
+      "artist": "Jonny Greenwood and Dudu Tassa",
+      "title": "Jalsa",
       "release_date": "2026-12-04"
     },
     {
@@ -412,6 +427,11 @@
       "release_date": "2027-01-29"
     },
     {
+      "artist": "Adeline Hotel",
+      "title": "Source of Magic",
+      "release_date": "2027-02-05"
+    },
+    {
       "artist": "Palehound",
       "title": "You Sing Like You’re Joking",
       "release_date": "2027-02-05"
@@ -452,8 +472,18 @@
       "release_date": "2027-02-19"
     },
     {
+      "artist": "Aaron Freitas",
+      "title": "Feat'Fòònese",
+      "release_date": "2027-02-26"
+    },
+    {
       "artist": "Blondie",
       "title": "High Noon",
+      "release_date": "2027-02-26"
+    },
+    {
+      "artist": "Ralphie Choo",
+      "title": "Charmain “Le Grand Architecte”",
       "release_date": "2027-02-26"
     },
     {
