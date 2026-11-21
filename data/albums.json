@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-20",
+  "as_of": "2026-11-21",
   "source_url": "https://pitchfork.com/news/new-album-releases/",
   "source_count": 56,
   "retain_days": 14,
@@ -11,121 +11,6 @@
     "date_headings": 17
   },
   "albums": [
-    {
-      "artist": "Bad Brains",
-      "title": "Are You Ready: The First Studio Recording",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Bassvictim",
-      "title": "Peace + War",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Boys Noize",
-      "title": "7LLVSION",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Carmen Quill",
-      "title": "Harmless",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Catherine Elicson",
-      "title": "River of Fat",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Daine",
-      "title": "In Endless Awe & Agony",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Dawuna",
-      "title": "Love’s Arp",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Kings of Leon",
-      "title": "O My Beloved",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "La Roux",
-      "title": "Old Flames",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Lil Baby",
-      "title": "Fresh",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Lou Turner",
-      "title": "Strangels",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Oso Oso",
-      "title": "An Exchange of Information",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Rex Orange County",
-      "title": "Dream Fatigue",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Sam Gendel",
-      "title": "Advanced White Trash",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Shygirl",
-      "title": "Swallow!",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Skepta",
-      "title": "The Form and Knife",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Statik Selektah",
-      "title": "Expensive Taste",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Sufjan Stevens",
-      "title": "Worst Christmas Ever!",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Tom Petty and the Heartbreakers",
-      "title": "Origins 1971-1978",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Tove Styrke",
-      "title": "I Thought This Story Wasn’t About Me",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Twisted Teens",
-      "title": "The Holy Cross Tigers",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "UNIIQU3",
-      "title": "Mass Appeal",
-      "release_date": "2026-11-06"
-    },
-    {
-      "artist": "Various Artists",
-      "title": "Heart of Gold: The Songs of Neil Young, Vol. 2 - Out of the Blue / Vol. 3 - Into the Black",
-      "release_date": "2026-11-06"
-    },
     {
       "artist": "2hollis",
       "title": "Pirouette",
