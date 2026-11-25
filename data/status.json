@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-24",
+  "as_of": "2026-11-25",
   "source": {
     "headline": "New Music Releases and Upcoming Albums in 2026 and 2027",
     "modified": "2026-11-02T17:05:17.380-05:00",
@@ -9,7 +9,7 @@
   "album_count": 75,
   "pattern_count": 85,
   "feed_sha256": "03631493509ca3b4d75174a721f2e3933b72f3be678adfdd5b06f47fe91b0c99",
-  "verified_at": "2026-11-24T23:27:59.275442+00:00",
+  "verified_at": "2026-11-25T23:04:09.236808+00:00",
   "last_source_fetch": "2026-11-19",
   "next_source_fetch": "2026-11-26",
   "update_mode": "retention only",
