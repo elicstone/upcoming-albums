@@ -1,21 +1,16 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-25",
+  "as_of": "2026-11-26",
   "source_url": "https://pitchfork.com/news/new-album-releases/",
-  "source_count": 56,
+  "source_count": 61,
   "retain_days": 14,
-  "last_source_fetch": "2026-11-19",
+  "last_source_fetch": "2026-11-26",
   "source_metadata": {
     "headline": "New Music Releases and Upcoming Albums in 2026 and 2027",
     "modified": "2026-11-02T17:05:17.380-05:00",
-    "date_headings": 17
+    "date_headings": 18
   },
   "albums": [
-    {
-      "artist": "2hollis",
-      "title": "Pirouette",
-      "release_date": "2026-11-11"
-    },
     {
       "artist": "Ecco2k",
       "title": "Echo",
@@ -192,6 +187,11 @@
       "release_date": "2026-12-04"
     },
     {
+      "artist": "Don Toliver",
+      "title": "Nitrous",
+      "release_date": "2026-12-04"
+    },
+    {
       "artist": "Jonny Greenwood and Dudu Tassa",
       "title": "Jalsa",
       "release_date": "2026-12-04"
@@ -267,6 +267,11 @@
       "release_date": "2027-01-15"
     },
     {
+      "artist": "Belle and Sebastian",
+      "title": "Lisa Helps the Blind",
+      "release_date": "2027-01-20"
+    },
+    {
       "artist": "Chvrches",
       "title": "All the King’s Men",
       "release_date": "2027-01-22"
@@ -327,6 +332,11 @@
       "release_date": "2027-02-12"
     },
     {
+      "artist": "Julien Baker",
+      "title": "This World or the Next",
+      "release_date": "2027-02-12"
+    },
+    {
       "artist": "Junior Boys",
       "title": "The Gore",
       "release_date": "2027-02-12"
@@ -340,6 +350,11 @@
       "artist": "Whait (Wendy Eisenberg and More Eaze)",
       "title": "Sympathy at Home",
       "release_date": "2027-02-17"
+    },
+    {
+      "artist": "Beabadoobee",
+      "title": "Bananas 4 Cats",
+      "release_date": "2027-02-19"
     },
     {
       "artist": "Everything But the Girl",
@@ -369,6 +384,11 @@
     {
       "artist": "Ralphie Choo",
       "title": "Charmain “Le Grand Architecte”",
+      "release_date": "2027-02-26"
+    },
+    {
+      "artist": "Ryley Walker",
+      "title": "Darkening the Glass",
       "release_date": "2027-02-26"
     },
     {

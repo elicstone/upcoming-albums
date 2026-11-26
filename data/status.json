@@ -1,17 +1,17 @@
 {
-  "as_of": "2026-11-25",
+  "as_of": "2026-11-26",
   "source": {
     "headline": "New Music Releases and Upcoming Albums in 2026 and 2027",
     "modified": "2026-11-02T17:05:17.380-05:00",
-    "date_headings": 17
+    "date_headings": 18
   },
-  "source_count": 56,
-  "album_count": 75,
-  "pattern_count": 85,
-  "feed_sha256": "03631493509ca3b4d75174a721f2e3933b72f3be678adfdd5b06f47fe91b0c99",
-  "verified_at": "2026-11-25T23:04:09.236808+00:00",
-  "last_source_fetch": "2026-11-19",
-  "next_source_fetch": "2026-11-26",
-  "update_mode": "retention only",
+  "source_count": 61,
+  "album_count": 79,
+  "pattern_count": 89,
+  "feed_sha256": "a6583439abbd4b591fb621fbb67d01b16073b62ca55cf96f42a986bfd8d734be",
+  "verified_at": "2026-11-26T22:58:02.011230+00:00",
+  "last_source_fetch": "2026-11-26",
+  "next_source_fetch": "2026-12-03",
+  "update_mode": "source refresh",
   "gist_raw_url": "https://gist.githubusercontent.com/elicstone/a04cecae2e6a2ada2b969e752831d332/raw/gistfile1.txt"
 }
