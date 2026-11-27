@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-11-26",
+  "as_of": "2026-11-27",
   "source_url": "https://pitchfork.com/news/new-album-releases/",
   "source_count": 61,
   "retain_days": 14,
@@ -11,11 +11,6 @@
     "date_headings": 18
   },
   "albums": [
-    {
-      "artist": "Ecco2k",
-      "title": "Echo",
-      "release_date": "2026-11-12"
-    },
     {
       "artist": "Aesop Rock and Blockhead",
       "title": "Trouble Mountain",
